@@ -1,4 +1,4 @@
-# YellowBirb_Project_github
+# YellowBird
 
 Yellow Bird Which can be found at: <https://verzatiledev.itch.io/> .
 The game was essentially made for a friend of mine who works as a 
