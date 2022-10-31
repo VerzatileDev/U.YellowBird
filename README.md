@@ -1,6 +1,6 @@
 # YellowBird
 
-Yellow Bird Which can be found at: <https://verzatiledev.itch.io/> .
+Yellow Bird Which can be found at: https://verzatiledev.itch.io/yellowbird .
 The game was essentially made for a friend of mine who works as a 
 security guard and told me, that he feels bored at night-shifts,
 and would like to play a similair game at the located computers.
