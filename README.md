@@ -1,16 +1,32 @@
 # YellowBird
 
-Yellow Bird Which can be found at: https://verzatiledev.itch.io/yellowbird .
-The game was essentially made for a friend of mine who works as a 
-security guard and told me, that he feels bored at night-shifts,
-and would like to play a similair game at the located computers.
+<br>
+</br>
+
+###  About the game
+
+YellowBird, is an infinite sideScroller, where the players aim is to finish with the utmost highest score they can achive and complete.
+The project has originally been made for a friend, who wished to play games as a security chief, but common websites are blocked off
+where games can be played, and this version offered him to enjoy night-shifts as well as keep himself awake during these harsh times!
 
 
-" The Project aimed to avoid any use of Youtube Tutorials as well as
-  StackOverFlow use through out the whole Projects                  "
+You can also find the game on [itch.io](https://verzatiledev.itch.io/yellowbird)
+If you like the content reach out to [Twitter-VerzatileDev](https://twitter.com/VerzatileDev)
+
+<br>
+</br>
 
 
-License Agreement :
+### Project Goal
+
+Within this project the aim was to make a game for a friend, but as well as improve programming skills overall by making the game
+without any tutorials online and purly sticking with documentation that is available on the internet as well as knowledge gained
+from previouly established "Game Jam's" Projects.
+
+<br>
+</br>
+
+### Licenese Agreement
 
 BSD 3-Clause License
 
