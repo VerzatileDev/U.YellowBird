@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class PipeSpawn : MonoBehaviour
 {
-    public GameObject prefab;
-    public float SpawnDistance = 1.5f;
-    public float minHeight = -1f;
-    public float maxHeight = 1f;
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private float SpawnDistance = 1.5f;
+    [SerializeField] private float minHeight = -1f;
+    [SerializeField] private float maxHeight = 1f;
 
     private void OnEnable()
     {
-        InvokeRepeating(nameof(Spawn), SpawnDistance, SpawnDistance);// Needs a provided Method.
+        InvokeRepeating(nameof(Spawn), SpawnDistance, SpawnDistance);
     }
 
-    private void Spawn() // Spawns The Set Prefab Of Pipes And Box Collector
+    private void Spawn()
     {
-        GameObject pipes = Instantiate(prefab, transform.position, Quaternion.identity); // Cloning and setting
+        GameObject pipes = Instantiate(prefab, transform.position, Quaternion.identity);
         pipes.transform.position += Vector3.up * Random.Range(minHeight, maxHeight);
     }
 }

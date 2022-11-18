@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 
 public class AudioMenu : MonoBehaviour
 {
-    public AudioMixer theMixer; // Manually Dragged in Editor.
+    [SerializeField] private AudioMixer theMixer;
 
     [SerializeField] private Slider masterSlider = null;
     [SerializeField] private Slider musicSlider = null;
@@ -68,7 +68,7 @@ public class AudioMenu : MonoBehaviour
         //LoadValues();
     }
 
-    void LoadInitialValues() // Needs tO Get Correct Value to Slider
+    void LoadInitialValues()
     {
         float masterValue = 1.0f; // gets the Float value for Master
         masterSlider.value = masterValue;  // Sets MasterSlider Values to the Information gained to masterValue
