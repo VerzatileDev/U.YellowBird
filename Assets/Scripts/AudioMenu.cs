@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,94 +5,102 @@ using UnityEngine.Audio;
 
 public class AudioMenu : MonoBehaviour
 {
-    [SerializeField] private AudioMixer theMixer;
 
-    [SerializeField] private Slider masterSlider = null;
-    [SerializeField] private Slider musicSlider = null;
-    [SerializeField] private Slider sfxSlider = null;
+    [System.Serializable]
+    private class AudioProperties
+    {
+        public AudioMixer theMixer;
+        [Space(1)]
 
-    [SerializeField] private TMP_Text masterLabel = null;
-    [SerializeField] private TMP_Text musicLabel = null;
-    [SerializeField] private TMP_Text sfxLabel = null;
+        [Header("Sliders")]
+        public Slider masterSlider = null;
+        public Slider musicSlider = null;
+        public Slider sfxSlider = null;
+        [Space(1)]
 
+        [Header("Labels")]
+        public TMP_Text masterLabel = null;
+        public TMP_Text musicLabel = null;
+        public TMP_Text sfxLabel = null;
+
+        
+    }
+    [SerializeField] private AudioProperties audioProperties;
+
+    private new LoadAudio audio;
 
     public void Start()
     {
-        if(PlayerPrefs.GetFloat("VolumeSet") == 1)
+        
+        //audio = GetComponent<LoadAudio>();
+
+        
+        if (PlayerPrefs.GetInt("VolumeSet") == 1)
         {
-            LoadValues();
+            getAssignedValuesToSlider();
         }
         else
         {
-            LoadInitialValues();
+            getInitialValuesToSlider();
         }
-        //LoadValues();
-        //PlayerPrefs.SetFloat("MasterVol", 0.5f);
-        //PlayerPrefs.SetFloat("MusicVol", 0.5f);
-        //PlayerPrefs.SetFloat("SFXVol", 0.5f);
-        
     }
     public void SetMasterVol()
     {
-        masterLabel.text = Mathf.RoundToInt(masterSlider.value *100).ToString(); // Visual Update to player " Text
-        theMixer.SetFloat("MasterValue", Mathf.Log10(masterSlider.value) *20); // Update Slider Values in the Mixer
-        //PlayerPrefs.SetFloat("MasterVol", masterSlider.value); 
+        audioProperties.masterLabel.text = Mathf.RoundToInt(audioProperties.masterSlider.value *100).ToString();
+        audioProperties.theMixer.SetFloat("MasterValue", Mathf.Log10(audioProperties.masterSlider.value) *20);
     }
     public void SetMusicVol()
     {
-        musicLabel.text = Mathf.RoundToInt(musicSlider.value *100).ToString(); // Visual Update to Player " Text
-        theMixer.SetFloat("MusicValue", Mathf.Log10(musicSlider.value) *20); // Update Slider Values
-        //PlayerPrefs.SetFloat("MusicVol", musicSlider.value);
+        audioProperties.musicLabel.text = Mathf.RoundToInt(audioProperties.musicSlider.value *100).ToString();
+        audioProperties.theMixer.SetFloat("MusicValue", Mathf.Log10(audioProperties.musicSlider.value) *20);
     }
     public void SetSFXVol()
     {
-        sfxLabel.text = Mathf.RoundToInt(sfxSlider.value *100).ToString(); // Visual Update to Player " Text
-        theMixer.SetFloat("SfxValue", Mathf.Log10(sfxSlider.value) *20); // Update Slider Values
-        //PlayerPrefs.SetFloat("SFXVol", sfxSlider.value);
+        audioProperties.sfxLabel.text = Mathf.RoundToInt(audioProperties.sfxSlider.value *100).ToString();
+        audioProperties.theMixer.SetFloat("SfxValue", Mathf.Log10(audioProperties.sfxSlider.value) *20);
     }
     public void SaveVolumeButton()
     {
-        float masterValue = masterSlider.value;
+        PlayerPrefs.SetFloat("MasterValue", audioProperties.masterSlider.value);
+        PlayerPrefs.SetFloat("MusicValue", audioProperties.musicSlider.value);
+        PlayerPrefs.SetFloat("SfxValue", audioProperties.sfxSlider.value);
+
+        PlayerPrefs.SetInt("VolumeSet", 1);
+    }
+
+    void getInitialValuesToSlider()
+    {
+
+        float masterValue = PlayerPrefs.GetFloat("MasterValue", 1.0f);
+        audioProperties.masterSlider.value = masterValue;
+
+
+        float musicValue = PlayerPrefs.GetFloat("MusicValue", 0.6f);
+        audioProperties.musicSlider.value = musicValue;
+ 
+
+        float sfxValue = PlayerPrefs.GetFloat("SfxValue", 0.6f);
+        audioProperties.sfxSlider.value = sfxValue;
+
+
+        PlayerPrefs.SetInt("VolumeSet", 0);
         PlayerPrefs.SetFloat("MasterValue", masterValue);
-
-        float musicValue = musicSlider.value;
         PlayerPrefs.SetFloat("MusicValue", musicValue);
-
-        float sfxValue = sfxSlider.value;
         PlayerPrefs.SetFloat("SfxValue", sfxValue);
-
-        PlayerPrefs.SetFloat("VolumeSet", 1);
-
-        //LoadValues();
     }
 
-    void LoadInitialValues()
+    void getAssignedValuesToSlider()
     {
-        float masterValue = 1.0f; // gets the Float value for Master
-        masterSlider.value = masterValue;  // Sets MasterSlider Values to the Information gained to masterValue
-        AudioListener.volume = masterValue; // Sets AudioListener Volume 
-
-        float musicValue = 0.5f;
-        musicSlider.value = musicValue;
-        AudioListener.volume = musicValue;
-
-        float sfxValue = 0.5f;
-        sfxSlider.value = sfxValue;
-        AudioListener.volume = sfxValue;
-    }
-
-    void LoadValues()
-    {
-        float masterValue = PlayerPrefs.GetFloat("MasterValue"); // gets the Float value for Master
-        masterSlider.value = masterValue;  // Sets MasterSlider Values to the Information gained to masterValue
-        AudioListener.volume = masterValue; // Sets AudioListener Volume 
+        float masterValue = PlayerPrefs.GetFloat("MasterValue");
+        audioProperties.masterSlider.value = masterValue;
+        
 
         float musicValue = PlayerPrefs.GetFloat("MusicValue");
-        musicSlider.value = musicValue;
-        AudioListener.volume = musicValue;
+        audioProperties.musicSlider.value = musicValue;
+        
 
         float sfxValue = PlayerPrefs.GetFloat("SfxValue");
-        sfxSlider.value =sfxValue;
-        AudioListener.volume = sfxValue;
+        audioProperties.sfxSlider.value = sfxValue;
+        
     }
 }
