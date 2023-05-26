@@ -26,12 +26,6 @@ public class AudioMenu : MonoBehaviour
     }
     [SerializeField] private AudioProperties audioProperties;
 
-    private void Start()
-    {
-        getAssignedValuesToSlider();
-    }
-
-
     public void SetMasterVol()
     {
         audioProperties.masterLabel.text = Mathf.RoundToInt(audioProperties.masterSlider.value *100).ToString();
