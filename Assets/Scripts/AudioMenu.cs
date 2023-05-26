@@ -5,7 +5,6 @@ using UnityEngine.Audio;
 
 public class AudioMenu : MonoBehaviour
 {
-
     [System.Serializable]
     private class AudioProperties
     {
@@ -27,23 +26,12 @@ public class AudioMenu : MonoBehaviour
     }
     [SerializeField] private AudioProperties audioProperties;
 
-    private new LoadAudio audio;
-
-    public void Start()
+    private void Start()
     {
-        
-        //audio = GetComponent<LoadAudio>();
-
-        
-        if (PlayerPrefs.GetInt("VolumeSet") == 1)
-        {
-            getAssignedValuesToSlider();
-        }
-        else
-        {
-            getInitialValuesToSlider();
-        }
+        getAssignedValuesToSlider();
     }
+
+
     public void SetMasterVol()
     {
         audioProperties.masterLabel.text = Mathf.RoundToInt(audioProperties.masterSlider.value *100).ToString();
@@ -68,39 +56,10 @@ public class AudioMenu : MonoBehaviour
         PlayerPrefs.SetInt("VolumeSet", 1);
     }
 
-    void getInitialValuesToSlider()
+    public void getAssignedValuesToSlider()
     {
-
-        float masterValue = PlayerPrefs.GetFloat("MasterValue", 1.0f);
-        audioProperties.masterSlider.value = masterValue;
-
-
-        float musicValue = PlayerPrefs.GetFloat("MusicValue", 0.6f);
-        audioProperties.musicSlider.value = musicValue;
- 
-
-        float sfxValue = PlayerPrefs.GetFloat("SfxValue", 0.6f);
-        audioProperties.sfxSlider.value = sfxValue;
-
-
-        PlayerPrefs.SetInt("VolumeSet", 0);
-        PlayerPrefs.SetFloat("MasterValue", masterValue);
-        PlayerPrefs.SetFloat("MusicValue", musicValue);
-        PlayerPrefs.SetFloat("SfxValue", sfxValue);
-    }
-
-    void getAssignedValuesToSlider()
-    {
-        float masterValue = PlayerPrefs.GetFloat("MasterValue");
-        audioProperties.masterSlider.value = masterValue;
-        
-
-        float musicValue = PlayerPrefs.GetFloat("MusicValue");
-        audioProperties.musicSlider.value = musicValue;
-        
-
-        float sfxValue = PlayerPrefs.GetFloat("SfxValue");
-        audioProperties.sfxSlider.value = sfxValue;
-        
+        audioProperties.masterSlider.value = PlayerPrefs.GetFloat("MasterValue");
+        audioProperties.musicSlider.value = PlayerPrefs.GetFloat("MusicValue");
+        audioProperties.sfxSlider.value = PlayerPrefs.GetFloat("SfxValue");
     }
 }
