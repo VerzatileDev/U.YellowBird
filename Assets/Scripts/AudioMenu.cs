@@ -21,8 +21,7 @@ public class AudioMenu : MonoBehaviour
         public TMP_Text masterLabel = null;
         public TMP_Text musicLabel = null;
         public TMP_Text sfxLabel = null;
-
-        
+  
     }
     [SerializeField] private AudioProperties audioProperties;
 

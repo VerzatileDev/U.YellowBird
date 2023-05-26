@@ -13,13 +13,11 @@ public class LoadPlayerAudio : MonoBehaviour
         if (PlayerPrefs.HasKey("VolumeSet") & PlayerPrefs.GetInt("VolumeSet") == 1)
         {
             GetPlayerGameAudioToMixer();
-            
         }
         else
         {
             SetDefaultGameAudioSettingsToPlayerPrefs();
             SetDefaultGameAudioToMixer();
-            print("Test");
         }
     }
 
@@ -29,7 +27,6 @@ public class LoadPlayerAudio : MonoBehaviour
         PlayerPrefs.SetFloat("MasterValue", DefaultMasterValue);
         PlayerPrefs.SetFloat("MusicValue", DefaultMusicValue);
         PlayerPrefs.SetFloat("SfxValue", DefaultSfxValue);
-
     }
 
     public void SetDefaultGameAudioToMixer()
