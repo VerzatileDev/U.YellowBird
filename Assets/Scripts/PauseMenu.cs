@@ -4,9 +4,7 @@ public class PauseMenu : MonoBehaviour
 {
     protected internal static bool GameIsPaused = false;
     [SerializeField] private GameObject pauseMenuUI;
-    [SerializeField] private GameObject settingsMenuUI;
     [SerializeField] private GameObject DiedMenuUI;
-    private static bool InsideSettings = false;
     private bool isdead = false;
 
     void Update()
@@ -28,12 +26,9 @@ public class PauseMenu : MonoBehaviour
     }
     public void Resume()
     {
-        if (InsideSettings == false)
-        {
-            pauseMenuUI.SetActive(false);
-            Time.timeScale = 1f;
-            GameIsPaused = false;
-        }
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
     void Pause()
     {
@@ -41,25 +36,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
-    public void loadSettings()
-    {
-        //Debug.Log("Loading Settings");
-        pauseMenuUI.SetActive(false);
-        settingsMenuUI.SetActive(true);
-        InsideSettings = true;
-
-    }
+    
     public void Quit()
     {
-        //Debug.Log("Quitting Game");
         Application.Quit();
-    }
-
-    public void Back()
-    {
-        pauseMenuUI.SetActive(true);
-        settingsMenuUI.SetActive(false);
-        InsideSettings = false;
     }
 
     public void DeathPause()
@@ -71,7 +51,6 @@ public class PauseMenu : MonoBehaviour
     public void ReTry()
     {
         DiedMenuUI.SetActive(false);
-        //Debug.Log("Retried");
         movement.iskilled = false;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
         Time.timeScale = 1f;
