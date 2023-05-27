@@ -4,9 +4,9 @@ using UnityEngine.Audio;
 public class LoadPlayerAudio : MonoBehaviour
 {
     public AudioMixer theMixer;
-    public float DefaultMasterValue = 1.0f;
-    public float DefaultMusicValue = 0.5f;
-    public float DefaultSfxValue = 0.5f;
+    private protected float DefaultMasterValue = 1.0f;
+    private protected float DefaultMusicValue = 0.5f;
+    private protected float DefaultSfxValue = 0.5f;
 
     private void Start()
     {

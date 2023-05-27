@@ -13,6 +13,6 @@ public class GameManager : MonoBehaviour
         scoreTextInGame.text = score.ToString();
         scoreTextDeathUI.text = score.ToString();
         PointSound.Play();
-        Debug.Log(score);
+        //Debug.Log(score);
     }
 }
