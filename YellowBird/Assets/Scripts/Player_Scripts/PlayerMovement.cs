@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeight;
     protected internal static bool isKilled = false;
     [SerializeField] private AudioSource hopSound;
-
     [SerializeField] private AudioSource massiveExplosion;
 
     private void Awake()
