@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1425611967848416990}
   - component: {fileID: -243992945162145167}
   m_Layer: 0
-  m_Name: Cloud_IMG_PreFab
+  m_Name: Cloud_IMG_PreFab2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9e4d4f2b6d31488e3a661732e1177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectSpeed: 4
+  objectSpeed: 3.5
   moveDirection: 0
   addedDistanceScreenEdge: 1

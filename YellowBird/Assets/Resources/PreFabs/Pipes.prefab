@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9e4d4f2b6d31488e3a661732e1177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PipeSPeed: 5
+  objectSpeed: 5
+  moveDirection: 0
+  addedDistanceScreenEdge: 1
 --- !u!1 &4530838889711347339
 GameObject:
   m_ObjectHideFlags: 0

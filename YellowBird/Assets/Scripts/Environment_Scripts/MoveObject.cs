@@ -3,32 +3,47 @@ using UnityEngine;
 public class MoveObject : MonoBehaviour
 {
     public float objectSpeed = 5f;
-    private float leftScreenEdge;
+    public Direction moveDirection = Direction.Left;
+
+    public enum Direction
+    {
+        Left,
+        Right
+    }
+
+    private float screenEdge;
+    [SerializeField] private float addedDistanceScreenEdge = 1f;
 
     private void Start()
     {
-        CalculateLeftScreenEdge();
+        CalculateScreenEdge();
+        MoveObjectDirection();
+        CheckOffScreen();
     }
 
     private void Update()
     {
-        MoveObjectLeft();
+        MoveObjectDirection();
         CheckOffScreen();
     }
 
-    private void CalculateLeftScreenEdge()
+    private void CalculateScreenEdge()
     {
-        leftScreenEdge = Camera.main.ScreenToWorldPoint(Vector3.zero).x - 1; // -1 pushes off the screen.
+        screenEdge = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x + addedDistanceScreenEdge;
     }
 
-    private void MoveObjectLeft()
+    private void MoveObjectDirection()
     {
-        transform.position += Vector3.left * objectSpeed * Time.deltaTime;
+        transform.position += (moveDirection == Direction.Right ? Vector3.right : Vector3.left) * objectSpeed * Time.deltaTime;
     }
 
     private void CheckOffScreen()
     {
-        if (transform.position.x < leftScreenEdge)
+        if (moveDirection == Direction.Right && transform.position.x > screenEdge)
+        {
+            Destroy(gameObject);
+        }
+        else if (moveDirection == Direction.Left && transform.position.x < -screenEdge)
         {
             Destroy(gameObject);
         }

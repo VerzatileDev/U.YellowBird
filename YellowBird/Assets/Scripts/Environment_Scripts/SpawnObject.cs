@@ -3,13 +3,13 @@ using UnityEngine;
 public class SpawnObject : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabs;
-    [SerializeField] private float spawnDistance = 1.5f;
+    [SerializeField] private float spawnAnotherAfter = 1.5f;
     [SerializeField] private float minHeight = -1f;
     [SerializeField] private float maxHeight = 1f;
 
     private void OnEnable()
     {
-        InvokeRepeating(nameof(Spawn), spawnDistance, spawnDistance);
+        InvokeRepeating(nameof(Spawn), 1f, spawnAnotherAfter);
     }
 
     private void Spawn()
