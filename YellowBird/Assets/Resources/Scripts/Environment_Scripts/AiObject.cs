@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RandomJumpingObject : MonoBehaviour
+public class AiObject : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float minY = -2f;

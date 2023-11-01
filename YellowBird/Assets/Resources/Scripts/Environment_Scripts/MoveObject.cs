@@ -17,8 +17,6 @@ public class MoveObject : MonoBehaviour
     private void Start()
     {
         CalculateScreenEdge();
-        MoveObjectDirection();
-        CheckOffScreen();
     }
 
     private void Update()
