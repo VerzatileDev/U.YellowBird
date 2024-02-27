@@ -1,6 +1,18 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
+/// <summary>
+///
+/// License:
+/// Copyrighted to Brian "VerzatileDev" Lätt ©2024.
+/// Do not copy, modify, or redistribute this code without prior consent.
+/// All rights reserved.
+///
+/// </summary>
+/// <remarks>
+/// Loads the player's audio settings from PlayerPrefs and sets them to the AudioMixer. < br />
+/// Get and Set Default Audio Settings to PlayerPrefs and AudioMixer.
+/// </remarks>
 public class LoadPlayerAudio : MonoBehaviour
 {
     public AudioMixer theMixer;

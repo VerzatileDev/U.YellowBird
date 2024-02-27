@@ -1,5 +1,16 @@
 using UnityEngine;
 
+/// <summary>
+///
+/// License:
+/// Copyrighted to Brian "VerzatileDev" Lätt ©2024.
+/// Do not copy, modify, or redistribute this code without prior consent.
+/// All rights reserved.
+///
+/// </summary>
+/// <remarks>
+/// AiObject that moves and jumps around in the main Menu, and falls off the screen when clicked.
+/// </remarks>
 public class AiObject : MonoBehaviour
 {
     public float moveSpeed = 2f;

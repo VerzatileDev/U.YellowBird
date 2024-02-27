@@ -1,5 +1,17 @@
 using UnityEngine;
 
+/// <summary>
+///
+/// License:
+/// Copyrighted to Brian "VerzatileDev" Lätt ©2024.
+/// Do not copy, modify, or redistribute this code without prior consent.
+/// All rights reserved.
+///
+/// </summary>
+/// <remarks>
+/// Moves the player up and down, and checks for collision with the floor. < br />
+/// Includes Sound Effects for the player's movement and death.
+/// </remarks>
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;

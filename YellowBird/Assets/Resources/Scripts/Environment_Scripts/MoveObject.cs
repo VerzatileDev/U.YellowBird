@@ -1,5 +1,16 @@
 using UnityEngine;
 
+/// <summary>
+///
+/// License:
+/// Copyrighted to Brian "VerzatileDev" Lätt ©2024.
+/// Do not copy, modify, or redistribute this code without prior consent.
+/// All rights reserved.
+///
+/// </summary>
+/// <remarks>
+/// Moves an object in a set direction at a set speed and destroys it when it goes off screen.
+/// </remarks>
 public class MoveObject : MonoBehaviour
 {
     public float objectSpeed = 5f;

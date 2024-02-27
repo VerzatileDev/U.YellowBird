@@ -1,6 +1,18 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+///
+/// License:
+/// Copyrighted to Brian "VerzatileDev" Lätt ©2024.
+/// Do not copy, modify, or redistribute this code without prior consent.
+/// All rights reserved.
+///
+/// </summary>
+/// <remarks>
+/// Manages the game's score and high score. < br />
+/// Displays the score and high score in the game and death UI.
+/// </remarks>
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreTextInGame;

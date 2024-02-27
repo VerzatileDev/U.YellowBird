@@ -1,5 +1,16 @@
 using UnityEngine;
 
+/// <summary>
+///
+/// License:
+/// Copyrighted to Brian "VerzatileDev" Lätt ©2024.
+/// Do not copy, modify, or redistribute this code without prior consent.
+/// All rights reserved.
+///
+/// </summary>
+/// <remarks>
+/// Spawn a random object from a list of prefabs at a set interval.
+/// </remarks>
 public class SpawnObject : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabs;

@@ -3,6 +3,18 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
 
+/// <summary>
+///
+/// License:
+/// Copyrighted to Brian "VerzatileDev" Lätt ©2024.
+/// Do not copy, modify, or redistribute this code without prior consent.
+/// All rights reserved.
+///
+/// </summary>
+/// <remarks>
+/// Hosts buttons for Sliders and Labels to control the AudioMixer. < br />
+/// Additionally, it saves the volume settings to PlayerPrefs.
+/// </remarks>
 public class AudioMenu : MonoBehaviour
 {
     [System.Serializable]

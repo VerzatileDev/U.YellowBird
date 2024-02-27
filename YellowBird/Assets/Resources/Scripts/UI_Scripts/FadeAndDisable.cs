@@ -1,6 +1,17 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+///
+/// License:
+/// Copyrighted to Brian "VerzatileDev" Lätt ©2024.
+/// Do not copy, modify, or redistribute this code without prior consent.
+/// All rights reserved.
+///
+/// </summary>
+/// <remarks>
+/// Fades the text and then disables the GameObject Eventually. Used for the Button Tips in game
+/// </remarks>
 public class FadeAndDisable : MonoBehaviour
 {
     [SerializeField] private float fadeDuration = 15.0f;

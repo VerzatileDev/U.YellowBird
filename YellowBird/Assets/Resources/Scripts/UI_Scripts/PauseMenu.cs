@@ -1,5 +1,17 @@
 using UnityEngine;
 
+/// <summary>
+///
+/// License:
+/// Copyrighted to Brian "VerzatileDev" Lätt ©2024.
+/// Do not copy, modify, or redistribute this code without prior consent.
+/// All rights reserved.
+///
+/// </summary>
+/// <remarks>
+/// Hosts Buttons and Functions for the Pause Menu such as Resume, Quit, and Retry.
+/// Additionally checks if the player is dead and if so, pauses the game and displays the End Game Menu.
+/// </remarks>
 public class PauseMenu : MonoBehaviour
 {
     protected internal static bool gamePaused = false;
